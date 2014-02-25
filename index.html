@@ -72,16 +72,6 @@
         <div class="col-xs-12 col-sm-4 pull-left" style="margin:0 0 40px;">
           <div class="row">
             <div class="col-xs-12">
-
-              <div ng-repeat="($key, $value) in colorList" style="width:30px;height:30px;background:{{$value.toHexString()}};"></div>
-
-              <div class="input-group">
-                <input type="text" class="form-control" />
-                <span class="input-group-addon" style="background:{{color.toHexString()}};"></span>
-              </div>
-
-
-
               <div class="media flowPoint" ng-repeat="point in currentPage.points">
                 <div class="pull-left">
                   <map-point point="point"></map-point>
