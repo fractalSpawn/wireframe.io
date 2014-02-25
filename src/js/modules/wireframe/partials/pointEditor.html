@@ -1,0 +1,25 @@
+<div>
+  <div class="modal-header">
+    <h3>Point Editor</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="content" class="col-sm-2 control-label">Color:</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" ng-model="point.color" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="content" class="col-sm-2 control-label">Content:</label>
+        <div class="col-sm-10">
+          <textarea name="content" class="form-control" ng-model="point.content" rows="4"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="onComplete()">OK</button>
+    <button class="btn btn-warning" ng-click="onCancel()">Cancel</button>
+  </div>
+</div>
