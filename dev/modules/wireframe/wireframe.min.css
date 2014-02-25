@@ -1,0 +1,46 @@
+.navbar-default {
+  box-shadow: 0 0 10px #DDD; }
+
+#screenshot {
+  box-shadow: 0 0 20px #DDD; }
+
+.flowPoint {
+  margin: 0 0 10px; }
+  .flowPoint .contentWrapper {
+    padding: 10px;
+    padding-bottom: 0;
+    background: #F8F8F8;
+    border-radius: 10px;
+    border-top-left-radius: 0; }
+    .flowPoint .contentWrapper .utilities {
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.5s; }
+  .flowPoint .contentWrapper:hover {
+    background: #F0F8FD; }
+    .flowPoint .contentWrapper:hover .utilities {
+      opacity: 1;
+      max-height: 100px; }
+
+.mapPoint {
+  width: 20px;
+  height: 30px; }
+
+.flowPoint.ng-leave, .flowPoint.ng-enter {
+  transition: all 0.5s; }
+
+.flowPoint.ng-enter {
+  opacity: 0;
+  max-height: 0; }
+
+.flowPoint.ng-enter-active {
+  opacity: 1;
+  max-height: 1000px; }
+
+.flowPoint.ng-leave {
+  opacity: 1;
+  max-height: 1000px; }
+
+.flowPoint.ng-leave-active {
+  opacity: 0;
+  max-height: 0; }

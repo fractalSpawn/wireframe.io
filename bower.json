@@ -1,0 +1,16 @@
+{
+    "name": "profile-management-system",
+    "version": "0.0.1",
+    "author": "uSamp Core Team 2014",
+    "dependencies": {
+        "angular": "1.2.9",
+        "angular-animate": "1.2.9",
+        "angular-mocks": "1.2.9",
+        "angular-route": "1.2.9",
+        "angular-ui-bootstrap-bower": "0.10.0",
+        "angular-ui-utils": "latest",
+        "bootstrap": "3.0.3",
+        "d3": "3.4.1",
+        "jasmine": "2.0.0"
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html id="ng-app" ng-app="wireframeIO" class="no-js">
+    <head>
+      <title>wireframe.io</title>
+
+      <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="prod/css/vendor.min.css" />
+      <link rel="stylesheet" type="text/css" href="prod/css/core.min.css" />
+
+      <link rel="stylesheet" type="text/css" href="prod/modules/wireframe/wireframe.min.css" />
+
+      <script type="text/javascript" src="prod/js/vendor.min.js"></script>
+
+      <script type="text/javascript" src="prod/modules/wireframe/wireframe.min.js"></script>
+      <script type="text/javascript" src="prod/js/core.min.js"></script>
+      <script type="text/javascript" src="prod/modules/wireframe/wireframe.tpls.min.js"></script>
+
+    </head>
+    <body class="container" ng-controller="wireframeCtrl">
+
+      <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container">
+          
+            <a href="#" class="navbar-brand">wireframe.io</a>
+          
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">fractalSpawn <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Edit Profile</a></li>
+                    <li><a href="#">View Projects</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Sign Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>{{wireframe.projectName}} <small>{{currentPage.name}}</small></h2>
+        </div>
+      </div>
+
+      <div class="navbar navbar-default">
+        <div class="col-xs-12 col-sm-6">
+          <pagination 
+            class="no-margin"
+            total-items="wireframe.pages.length"
+            items-per-page="1"
+            page="currentPageNum"
+            on-select-page="setCurrentPage(page)">
+          </pagination>
+        </div>
+        <div class="col-xs-12 col-sm-6 text-right">
+          <button class="btn btn-success navbar-btn" ng-click="launchPageEditor()">
+            <i class="glyphicon glyphicon-plus"></i> Add New Screen
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class="col-xs-12 col-sm-8 pull-right">
+          <screenshot id="screenshot" img-src="currentPage.imgSrc" points="currentPage.points"></screenshot>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 pull-left" style="margin:0 0 40px;">
+          <div class="row">
+            <div class="col-xs-12">
+
+              <div ng-repeat="($key, $value) in colorList" style="width:30px;height:30px;background:{{$value.toHexString()}};"></div>
+
+              <div class="input-group">
+                <input type="text" class="form-control" />
+                <span class="input-group-addon" style="background:{{color.toHexString()}};"></span>
+              </div>
+
+
+
+              <div class="media flowPoint" ng-repeat="point in currentPage.points">
+                <div class="pull-left">
+                  <map-point point="point"></map-point>
+                </div>
+                <div class="media-body contentWrapper">
+                  <p>{{point.content}}</p>
+                  <ul class="list-inline text-right utilities" style="font-size:11px;">
+                    <li>
+                      <a ng-click="launchPointEditor(point)">
+                        <i class="glyphicon glyphicon-pencil"></i> Edit
+                      </a>
+                    </li>
+                    <li>
+                      <a ng-click="removePoint(point)">
+                        <i class="glyphicon glyphicon-remove"></i> Remove
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 text-right">
+              <button class="btn btn-primary" ng-click="launchPointEditor()">
+                <i class="glyphicon glyphicon-plus"></i> Add Point
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </body>
+</html>
